@@ -3,10 +3,13 @@ import Dependencies._
 lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
-      organization := "com.example",
+      organization := "com.ikempf",
       scalaVersion := "2.12.4",
-      version      := "0.1.0-SNAPSHOT"
+      version := "0.1.0-SNAPSHOT",
+      addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.3")
     )),
+    scalacOptions += "-Ypartial-unification",
     name := "extensible-effects",
-    libraryDependencies += scalaTest % Test
+    libraryDependencies += eff
+//    libraryDependencies += cats
   )
